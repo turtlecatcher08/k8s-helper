@@ -7,4 +7,44 @@ echo string | base64 -d | openssl x509 -test --noout
 #check auth based on your current role
 kubectl auth can-i 'verb' 'resource' 
 kubectl auth can-i 'verb' 'resource' --as-group="clustername" --as="username"
-#username doesnt matter as long as its in the group. 
+#username doesnt matter as long as its in the group.
+
+##kubectl cert commands, csr & key generation. creating csr and updating that to config file to run kubectl
+#generate key
+openssl genrsa -out batman.key 4096
+#create cert req
+openssl req -new -key batman.key -out batman.csr -subj "/CN=batman/O=cluster-superheroes" -sha256
+#set csr data & user
+CSR_DATA=$(base64 batman.csr | tr -d '\n')
+CSR_USER=batman
+#create request yaml
+#apply the cert for signing
+kubectl apply -f csr-request.yaml
+#check cert siging request
+kubectl get csr
+#status at this step would be pending
+#user with full access should be able to approve it via below command with name from above command
+kubectl certificate approve 'nameOfUser'
+#check details of request
+kubectl get csr 'name' -o json
+#get cert
+kubectl get csr 'name' -o jsonpath='{.status.certificate}'
+kubectl get csr 'name' -o jsonpath='{.status.certificate}' | base64 -d > name.crt
+#check cert details
+openssl x509 -in name.crt -text --noout
+#setup kube config file to use this cert for example, this newname.config should be there for the user and group created
+KUBECONFIG=newname.config kubectl config unset users.default
+KUBECONFIG=newname.config kubectl config delete-context default
+KUBECONFIG=newname.config kubectl config unset current-context
+KUBECONFIG=newname.config kubectl config set-credentials name --client-certificate=name.cert --client-key=name.key --embed-certs=true
+KUBECONFIG=newname.config kubectl config set-context default --cluster=default --user=name
+KUBECONFIG=newname.config kubectl config ise-context default
+#use this file to run kubectl command
+KUBECONFIG=newname.config kubectl get nodes
+
+
+
+
+
+
+
