@@ -1,2 +1,6 @@
 -l is same as --selector
-\n--\n is used for concatinating multiple files in one, can be used to apply. 
+\n--\n is used for concatinating multiple files in one, can be used to apply.
+#Decode base64 string
+echo string | base64 -d
+#get cert
+echo string | base64 -d | openssl x509 -test --noout
