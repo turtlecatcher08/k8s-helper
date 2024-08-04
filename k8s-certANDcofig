@@ -41,5 +41,6 @@ KUBECONFIG=newname.config kubectl config ise-context default
 KUBECONFIG=newname.config kubectl get nodes
 
 
-
+##create a role as watcher
+kubectl create clusterrole cluster-watcher --verb=list,get,watch --resource='*'
 
