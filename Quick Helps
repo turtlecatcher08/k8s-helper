@@ -4,3 +4,5 @@
 echo string | base64 -d
 #get cert
 echo string | base64 -d | openssl x509 -test --noout
+#check auth based on your current role
+kubectl auth can-i 'verb' 'resource'
