@@ -1,3 +1,12 @@
+##tool on github to automate below
+apt update && install -y git jq openssl
+git clone https://github.com/spurin/kubeconfig-creator.git
+cd kubeconfig-creator
+./kubeconfig-creator.sh -u batman -g cluster-superheroes
+
+
+
+
 ##kubectl cert commands, csr & key generation. creating csr and updating that to config file to run kubectl
 #generate key
 openssl genrsa -out batman.key 4096
