@@ -5,4 +5,6 @@ echo string | base64 -d
 #get cert
 echo string | base64 -d | openssl x509 -test --noout
 #check auth based on your current role
-kubectl auth can-i 'verb' 'resource'
+kubectl auth can-i 'verb' 'resource' 
+kubectl auth can-i 'verb' 'resource' --as-group="clustername" --as="username"
+#username doesnt matter as long as its in the group. 
