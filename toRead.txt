@@ -6,15 +6,15 @@
 [] role, service account, role binding ...
 [] configmap
 [] shrading
-[] affinity and anti
+[] affinity and anti - with examples and options
 https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
-[] 
-[] 
-[] 
-[] 
-[] 
-[] 
-[] 
+[] kube-scheduler VS kube-controller-manager
+[] candidate for serverless arch
+[] PVC & PV
+[] Anti-corruption Layer
+[] ISTIO components
+[] noteselectorterms
+[] multicluster service discovery
 [] 
 [] 
 [] 
