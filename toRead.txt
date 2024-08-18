@@ -1,0 +1,10 @@
+[] API aggregation Layer
+[] service discovery
+[] kube api server
+[] kube proxy
+[] disruption budget
+[] role, service account, role binding ...
+[] configmap
+[] shrading
+[] 
+[] 
