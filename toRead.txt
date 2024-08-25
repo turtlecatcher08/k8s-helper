@@ -15,7 +15,7 @@ https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
 [] ISTIO components
 [] noteselectorterms
 [] multicluster service discovery
-[] 
+[] kubectl exec VS attach VS logs
 [] 
 [] 
 [] 
