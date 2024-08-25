@@ -1,5 +1,7 @@
 k8s arch
 https://www.simform.com/blog/kubernetes-architecture/
+https://devopscube.com/kubernetes-architecture-explained/
+
 
 implementation details - constants and well-known values & path
 https://kubernetes.io/docs/reference/setup-tools/kubeadm/implementation-details/
