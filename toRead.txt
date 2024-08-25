@@ -16,7 +16,7 @@ https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
 [] noteselectorterms
 [] multicluster service discovery
 [] kubectl exec VS attach VS logs
-[] 
+[] Node affinity VS Taints & Tolerations
 [] 
 [] 
 [] 
